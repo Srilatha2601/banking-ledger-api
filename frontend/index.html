@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Ledger Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Banking Ledger</h1>
+        <p>Manage your account in one place</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Account Balance</h2>
+            <h1 id="balance">₹0.00</h1>
+            <label for="accountId">Account ID</label>
+            <input id="accountId" type="number" min="1"
+                   placeholder="Enter account ID">
+            <button onclick="loadAccount()">Load Account</button>
+        </section>
+
+        <section class="card">
+            <h2>Deposit Money</h2>
+            <input id="depositAmount" type="number" min="0.01"
+                   step="0.01" placeholder="Amount">
+            <button onclick="depositMoney()">Deposit</button>
+        </section>
+
+        <section class="card">
+            <h2>Withdraw Money</h2>
+            <input id="withdrawAmount" type="number" min="0.01"
+                   step="0.01" placeholder="Amount">
+            <button onclick="withdrawMoney()">Withdraw</button>
+        </section>
+
+        <section class="card">
+            <h2>Transfer Money</h2>
+            <input id="toAccount" type="number" min="1"
+                   placeholder="Receiver Account ID">
+            <input id="transferAmount" type="number" min="0.01"
+                   step="0.01" placeholder="Amount">
+            <button onclick="transferMoney()">Transfer</button>
+        </section>
+
+        <section class="card history">
+            <h2>Transaction History</h2>
+            <button onclick="loadHistory()">Refresh History</button>
+            <p id="message" role="status"></p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
